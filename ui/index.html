@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ARCWorks Kathana Log Analyzer</title>
+<link rel="stylesheet" href="style.css"><script src="chart.umd.js"></script></head><body>
+<header>
+  <div class="brand"><div class="logo">⚔</div><div><h1>Kathana Log Analyzer</h1><small>ARCWorks · v1.0.0</small></div></div>
+  <nav id="tabs">
+    <button data-tab="overview" class="on">🏆 Overview</button>
+    <button data-tab="compare">⚖ Compare</button>
+    <button data-tab="charts">📈 Charts</button>
+    <button data-tab="mobs">👹 Mobs &amp; Loot</button>
+  </nav>
+  <div class="actions">
+    <button id="btnOpen" class="primary">＋ Add logs</button>
+    <button id="btnMerge" title="Join several exports of the same session into one">🔗 Merge</button>
+    <button id="btnExport" title="Save this comparison as an HTML report">💾 Save report</button>
+    <button id="btnAbout">ⓘ</button>
+  </div>
+</header>
+<div id="chips"></div>
+<main>
+  <section id="empty" class="empty">
+    <div class="drop">📜<h2>Drop your Kathana chat logs here</h2>
+    <p>or click <b>＋ Add logs</b>. Load up to 6 logs and compare them side by side.</p>
+    <div id="recent"></div></div>
+  </section>
+  <section id="overview" class="tab"></section>
+  <section id="compare" class="tab hidden"></section>
+  <section id="charts" class="tab hidden">
+    <div class="chartgrid">
+      <div class="panel"><h3>💰 Rupiah over time</h3><canvas id="cRup"></canvas></div>
+      <div class="panel"><h3>✨ Prana over time</h3><canvas id="cPra"></canvas></div>
+      <div class="panel"><h3>🗡 Damage per minute</h3><canvas id="cDmg"></canvas></div>
+      <div class="panel"><h3>⏱ Per hour, head to head</h3><canvas id="cBar"></canvas></div>
+    </div>
+  </section>
+  <section id="mobs" class="tab hidden"></section>
+</main>
+<footer>⚠ All numbers are calculated only from the logs you load. Your in-game results may differ depending on play style, gear, buffs, map, party, and other game factors.</footer>
+<div id="modal" class="modal hidden"><div class="box">
+  <h2>👋 Welcome to the Kathana Log Analyzer</h2>
+  <p>In Kathana, export your chat log, then drop the <b>.txt</b> files here. We'll count your Rupiah, Prana and damage and show which session was the best.</p>
+  <p class="warn">⚠ All numbers are calculated only from the logs you load. Your in-game results may differ depending on play style, gear, buffs, map, party, and other game factors.</p>
+  <p class="tiny">"Kills" are estimated from Prana rewards (the log has no kill line). "Active time" leaves out gaps of 2+ minutes with no fighting or loot.</p>
+  <button id="btnOk" class="primary">Got it, let's go!</button></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script></body></html>
